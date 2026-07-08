@@ -22,7 +22,7 @@ import java.util.UUID;
  */
 public class GameManager {
 
-    private static final int MIN_PLAYERS_TO_START = 2;
+    private static final int MIN_PLAYERS_TO_START = 1;
     private static final int START_COUNTDOWN_SECONDS = 10;
     private static final int END_DELAY_SECONDS = 8;
 
