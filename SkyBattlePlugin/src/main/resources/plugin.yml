@@ -1,0 +1,21 @@
+name: SkyBattle
+version: '${project.version}'
+main: net.skybattle.plugin.SkyBattlePlugin
+api-version: '1.21'
+description: Sky Battle minigame для Purpur/Paper 1.21.11 — аналог режима с MCC Island
+author: SkyBattle Team
+
+commands:
+  skybattle:
+    description: Управление мини-игрой Sky Battle
+    usage: /skybattle <start|stop|status|join|leave>
+    aliases: [sb, sky]
+    permission: skybattle.use
+
+permissions:
+  skybattle.use:
+    description: Базовое использование команд Sky Battle
+    default: true
+  skybattle.admin:
+    description: Администрирование игры (старт, стоп)
+    default: op

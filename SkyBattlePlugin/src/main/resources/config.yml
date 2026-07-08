@@ -1,0 +1,12 @@
+# Sky Battle — конфигурация
+
+game:
+  # Имя мира, где проходит игра (пустое = первый мир сервера)
+  world: "world"
+
+border:
+  center-x: 0.0
+  center-z: 0.0
+  initial-size: 200.0
+  final-size: 20.0
+  shrink-duration-seconds: 300
