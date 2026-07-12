@@ -1,4 +1,4 @@
-name: Cloud Build Jar
+name: Cloud Build Jar and Pack
 
 on: [push, workflow_dispatch]
 
@@ -16,7 +16,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Locate pom.xml and Build
+    - name: Locate pom.xml and Build Plugin
       run: |
         POM_PATH=$(find . -name "pom.xml" | head -n 1)
         if [ -z "$POM_PATH" ]; then
@@ -27,8 +27,19 @@ jobs:
         cd "$DIR_PATH"
         mvn clean package -DskipTests
 
+    - name: Pack Resource Pack
+      run: |
+        zip -r SkyBattleResourcePack.zip pack.mcmeta assets/
+
     - name: Upload Finished JAR
       uses: actions/upload-artifact@v4
       with:
         name: SkyBattlePlugin
         path: '**/target/*.jar'
+
+    - name: Upload Resource Pack
+      uses: actions/upload-artifact@v4
+      with:
+        name: SkyBattleResourcePack
+        path: SkyBattleResourcePack.zip
+
